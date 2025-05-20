@@ -1,9 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Form Validation Practice</title>
   </head>
-  <body></body>
+  <body>
+    <form novalidate>
+      <div>
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" name="email" />
+        <div id="email-error"></div>
+      </div>
+
+      <div>
+        <label for="country">Country</label>
+        <select name="country" id="country">
+          <option value="United States">United States</option>
+          <option value="Canada">Canada</option>
+        </select>
+        <div id="country-error"></div>
+      </div>
+
+      <div>
+        <label for="postal-code">Postal Code</label>
+        <input type="text" id="postal-code" name="postal-code" />
+        <div id="postal-code-error"></div>
+      </div>
+
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+        <div id="password-error"></div>
+      </div>
+
+      <div>
+        <label for="password-confirmation">Password Confirmation</label>
+        <input
+          type="password"
+          id="password-confirmation"
+          name="password-confirmation"
+        />
+        <div id="password-confirmation-error"></div>
+      </div>
+
+      <div>
+        <button type="submit" id="submit-button">Submit</button>
+      </div>
+    </form>
+  </body>
 </html>
