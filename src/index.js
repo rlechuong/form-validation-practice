@@ -15,7 +15,6 @@ const passwordConfirmationError = document.querySelector(
 );
 
 // E-Mail Checking
-
 const isValidEmailLength = () => {
   const validity = emailInput.value.length !== 0;
   return validity;
@@ -58,7 +57,6 @@ const setEmailError = (isValid) => {
 };
 
 // Postal Code Checking
-
 const isValidPostalCodeLength = () => {
   const validity = postalCodeInput.value.length !== 0;
   return validity;
@@ -102,6 +100,7 @@ const setPostalCodeClass = (isValid) => {
 
 const setPostalCodeError = (isValid) => {
   const postalCodeLength = isValidPostalCodeLength();
+  const postalCodePattern = isValidPostalCodePattern();
   const countryInput = document.querySelector("#country").value;
 
   if (isValid) {
@@ -111,14 +110,13 @@ const setPostalCodeError = (isValid) => {
   } else if (!postalCodeLength) {
     postalCodeError.textContent = "Please enter a postal code.";
     postalCodeError.setAttribute("class", "active");
-  } else {
+  } else if (!postalCodePattern) {
     postalCodeError.textContent = postalCodeConstraints[countryInput][1];
     postalCodeError.setAttribute("class", "active");
   }
 };
 
 // Password Checking
-
 const isValidPasswordLength = () => {
   const validity = passwordInput.value.length !== 0;
   return validity;
@@ -162,7 +160,6 @@ const setPasswordError = (isValid) => {
 };
 
 // Password Confirmation Checking
-
 const isValidPasswordConfirmationLength = () => {
   const validity = passwordConfirmationInput.value.length !== 0;
   return validity;
@@ -270,6 +267,15 @@ const handleSubmit = (event) => {
   setPasswordError(passwordInput);
   setPasswordConfirmationClass(passwordConfirmationInput);
   setPasswordConfirmationError(passwordConfirmationInput);
+
+  if (
+    emailInput &&
+    postalCodeInput &&
+    passwordInput &&
+    passwordConfirmationInput
+  ) {
+    alert(`Form "Submitted"`);
+  }
 };
 
 // The code that runs the first time the page loads/refreshes.

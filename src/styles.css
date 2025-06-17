@@ -66,3 +66,47 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 25vw;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form > div:nth-child(-n + 5) {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+form > div:nth-child(n + 5) {
+  display: grid;
+  justify-content: center;
+}
+
+form div label {
+  grid-row: 1 / 2;
+}
+
+form div input {
+  grid-row: 2 / 3;
+}
+
+form div div {
+  grid-row: 3 / 4;
+}
+
+.active {
+  color: red;
+}
+
+.invalid {
+  outline: 1px solid red;
+}
